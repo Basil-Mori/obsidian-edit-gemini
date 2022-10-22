@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-sample-plugin",
-	"name": "Sample Plugin",
+	"id": "obsidian-gemini",
+	"name": "Gemini",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "This is a sample plugin for Obsidian. This plugin demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
+	"description": "In-dev plugin for reading .gmi files.",
+	"author": "Basil_Mori",
 	"authorUrl": "https://obsidian.md",
 	"isDesktopOnly": false
 }

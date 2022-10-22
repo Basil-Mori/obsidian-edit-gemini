@@ -6,3 +6,12 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 
 */
+
+.fileLine { 
+	margin: 0 !important; 
+	white-space: pre-wrap;
+}
+
+.fileDIV {
+	white-space: pre-wrap;
+}

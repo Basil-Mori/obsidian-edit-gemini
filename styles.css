@@ -7,11 +7,65 @@ If your plugin does not need CSS, delete this file.
 
 */
 
-.fileLine { 
-	margin: 0 !important; 
-	white-space: pre-wrap;
-}
 
 .fileDIV {
 	white-space: pre-wrap;
+}
+
+.basic { 
+	margin: 0 !important; 
+	color:initial;
+	font-weight:initial;
+	text-decoration: initial;
+	padding-left: initial;
+	background-color: initial;
+	font-size: initial;
+	/* white-space: pre-wrap; */
+}
+
+
+.h1 {
+	font-size: 2em;
+	color:darkcyan;
+	font-weight: bold;
+	margin: 0 !important;
+}
+.h2 {
+	font-size: 1.5em;
+	color:darkcyan;
+	font-weight: bold;
+	margin: 0 !important; 
+}
+
+.h3 {
+	font-size: 1.17em;
+	color:darkcyan;
+	font-weight: bold;
+	margin: 0 !important; 
+}
+
+.link {
+	color:darkolivegreen;
+	text-decoration: underline;
+	margin: 0 !important; 
+}
+
+.list {
+	margin: 0 !important;
+	padding-left: 0.5em;
+	font-weight: bold;
+}
+
+.blockquote {
+	margin: 0 !important;
+	padding-left: 0.5em;
+	outline: 1px;
+	background-color: peru;
+	color: black;
+}
+
+.preformatted {
+	margin: 0 !important;
+	font-size: 0.90em;
+	color:deeppink;
 }

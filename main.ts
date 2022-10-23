@@ -1,4 +1,3 @@
-import { normalize } from "node:path/win32";
 import {Plugin, normalizePath } from "obsidian";
 
 

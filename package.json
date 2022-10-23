@@ -10,7 +10,7 @@
 	},
 	"keywords": [],
 	"author": "Basil_Mori",
-	"license": "MIT",
+	"license": "Blue Oak Model License",
 	"devDependencies": {
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "5.29.0",

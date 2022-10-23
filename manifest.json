@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-gemini",
-	"name": "Gemini",
-	"version": "1.0.0",
+	"id": "edit-gemini",
+	"name": "Edit Gemini",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "In-dev plugin for reading .gmi files.",
+	"description": "Allows the user to edit and create .gmi files.",
 	"author": "Basil_Mori",
-	"authorUrl": "https://obsidian.md",
+	"authorUrl": "https://github.com/Basil-Mori/",
 	"isDesktopOnly": false
 }

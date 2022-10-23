@@ -1,46 +1,6 @@
-// import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import { MarkdownView, Notice, Plugin, WorkspaceLeaf, Modal, App, Setting } from "obsidian";
-// import { GMIView, VIEW_TYPE_GMI } from "./view";
+import { normalize } from "node:path/win32";
+import {Plugin, normalizePath } from "obsidian";
 
-// Remember to rename these classes and interfaces!
-
-class ExampleModal extends Modal {
-	result: string;
-	onSubmit: (result: string) => void;
-  
-	constructor(app: App, onSubmit: (result: string) => void) {
-	  super(app);
-	  this.onSubmit = onSubmit;
-	}
-  
-	onOpen() {
-	  const { contentEl } = this;
-  
-	  contentEl.createEl("h1", { text: "Enter name of new .gmi file" });
-  
-	  new Setting(contentEl)
-		// .setName("Name")
-		.addText((text) =>
-		  text.onChange((value) => {
-			this.result = value
-		  }));
-  
-	  new Setting(contentEl)
-		.addButton((btn) =>
-		  btn
-			.setButtonText("Submit")
-			.setCta()
-			.onClick(() => {
-			  this.close();
-			  this.onSubmit(this.result);
-			}));
-	}
-  
-	onClose() {
-	  let { contentEl } = this;
-	  contentEl.empty();
-	}
-  }
 
 export default class GeminiEditor extends Plugin {
 
@@ -49,9 +9,9 @@ export default class GeminiEditor extends Plugin {
 		if ( !folder ) {
 			folder = app.fileManager.getNewFileParent(app.workspace.getActiveFile()?.path || '').path
 		}
-		if (folder == "/") {
-			folder = ""
-		}
+		// if (folder == "/") {
+		// 	folder = ""
+		// }
 
 		const files = app.vault.getFiles()
 		const filepaths : string[] = []
@@ -62,16 +22,17 @@ export default class GeminiEditor extends Plugin {
 				// new Notice(file.path)
 			// }
 		})
+		let filename = normalizePath(folder + "/Untitled.gmi")
 
-		if (!filepaths.contains(folder + "Untitled.gmi")) {
-			app.vault.create(folder + "Untitled.gmi", "")
+		if (!filepaths.contains(filename)) {
+			app.vault.create(filename, "")
 		} else {
 			let iter = 0
 			while (true) {
 				iter = iter + 1
-				let newname = "Untitled " + iter
-				if (!filepaths.contains(folder + newname + ".gmi")) {
-					app.vault.create(folder + newname + ".gmi", "")
+				let filename = normalizePath(folder + "/Untitled " + iter + ".gmi")
+				if (!filepaths.contains(filename)) {
+					app.vault.create(filename, "")
 					break
 				}
 			}
@@ -82,15 +43,10 @@ export default class GeminiEditor extends Plugin {
 
 	async onload() {
 		console.log('loading plugin: Gemini');
-		// this.registerView(
-		// 	VIEW_TYPE_GMI, 
-		// 	(leaf: WorkspaceLeaf) => new GMIView(leaf)
-		// );
+
 		this.registerExtensions(["gmi"], "markdown");
 
-		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('add-note-glyph', 'New Gemtext', (evt: MouseEvent) => {
-			// Called when the user clicks the icon.
+		this.addRibbonIcon('add-note-glyph', 'New Gemtext', (evt: MouseEvent) => {
 			this.createGMI()
 		});
 
@@ -105,11 +61,11 @@ export default class GeminiEditor extends Plugin {
 					  const fname = file.path
 					  if( fname.search("(\\.[^.]+)$") > 0 ) {
 						folder = file.parent.path
-						if (folder != "/") {
-							folder = folder + "/"
-						}
+						// if (folder != "/") {
+						// 	folder = folder + "/"
+						// }
 					  } else {
-						folder = fname + "/"
+						folder = fname
 					  }
 					  this.createGMI(folder)
 				  });

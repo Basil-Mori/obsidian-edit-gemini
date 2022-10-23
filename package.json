@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-gemini",
-	"version": "1.0.0",
-	"description": "In-dev plugin for reading .gmi files.",
+	"name": "edit-gemini",
+	"version": "1.0.1",
+	"description": "Allows the user to edit and create .gmi files.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

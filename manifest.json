@@ -2,7 +2,7 @@
 	"id": "edit-gemini",
 	"name": "Edit Gemini",
 	"version": "1.0.1",
-	"minAppVersion": "0.15.0",
+	"minAppVersion": "0.11.0",
 	"description": "Allows the user to edit and create .gmi files.",
 	"author": "Basil_Mori",
 	"authorUrl": "https://github.com/Basil-Mori/",

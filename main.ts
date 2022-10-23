@@ -3,6 +3,15 @@ import {Plugin, normalizePath } from "obsidian";
 
 export default class GeminiEditor extends Plugin {
 
+	checkExists(filepath : string) {
+		const file = app.vault.getAbstractFileByPath(filepath);
+		if (file) {
+			return true
+		} else {
+			return false
+		}
+	}
+
 	createGMI(folder? : string) {
 		// const fm = app.fileManager as any
 		if ( !folder ) {
@@ -12,25 +21,25 @@ export default class GeminiEditor extends Plugin {
 		// 	folder = ""
 		// }
 
-		const files = app.vault.getFiles()
-		const filepaths : string[] = []
-		files.forEach( (file) => {
-			// new Notice(file.parent.path)
-			// if ( file.parent.path == folder ) {
-				filepaths.push(file.path)
-				// new Notice(file.path)
-			// }
-		})
+		// const files = app.vault.getFiles()
+		// const filepaths : string[] = []
+		// files.forEach( (file) => {
+		// 	// new Notice(file.parent.path)
+		// 	// if ( file.parent.path == folder ) {
+		// 		filepaths.push(file.path)
+		// 		// new Notice(file.path)
+		// 	// }
+		// })
 		let filename = normalizePath(folder + "/Untitled.gmi")
 
-		if (!filepaths.contains(filename)) {
+		if (!this.checkExists(filename)) {
 			app.vault.create(filename, "")
 		} else {
 			let iter = 0
 			while (true) {
 				iter = iter + 1
 				let filename = normalizePath(folder + "/Untitled " + iter + ".gmi")
-				if (!filepaths.contains(filename)) {
+				if (!this.checkExists(filename)) {
 					app.vault.create(filename, "")
 					break
 				}

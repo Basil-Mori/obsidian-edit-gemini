@@ -10,5 +10,8 @@ The required APIs were added in Obsidian **0.11.0**, so that's the minimum requi
 - Select any .gmi file in the file viewer to start editing
 
 ## Installation
+### Manual
 - Download the latest release and extract the zip into `<vault>/.obsidian/plugins`
 - Disable Safe Mode if needed and enable the plugin from the Installed Plugins list.
+### Automatic
+- Just search for "Edit Gemini" in the community plugins list.
